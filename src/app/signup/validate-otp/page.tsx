@@ -44,7 +44,6 @@ const ValidateOTP = () => {
         const response : AxiosResponse<ValidateOTPResponseInterface> = await appClient.post('/api/validate-otp', {
             email, otp : Number(otp.join(""))
         });
-        console.log(response);
         
         if(!response.data?.success) {
             toast.error(response.data?.message)

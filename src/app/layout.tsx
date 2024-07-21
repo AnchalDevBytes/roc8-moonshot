@@ -18,12 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-      <UserContextProvider>
+        <UserContextProvider>
           <Header/>
-            <main className="h-[calc(100vh-128px)] flex items-center justify-center">
-              {children}
-              <Toaster position="top-center"/>
-            </main>
+          <main className="h-[calc(100vh-128px)] flex items-center justify-center">
+            {children}
+            <Toaster position="top-center"/>
+          </main>
         </UserContextProvider>
       </body>
     </html>

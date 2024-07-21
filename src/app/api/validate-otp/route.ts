@@ -67,13 +67,11 @@ export async function POST(req: NextRequest) {
   } catch (error: unknown) {
     if (isError(error)) {
       return NextResponse.json(
-        { success: false, message: error.message },
-        { status: 500 },
+        { success: false, message: error.message }
       );
     } else {
       return NextResponse.json(
-        { success: false, message: "An unknown error occurred" },
-        { status: 500 },
+        { success: false, message: "An unknown error occurred" }
       );
     }
   }

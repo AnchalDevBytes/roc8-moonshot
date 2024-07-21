@@ -83,7 +83,7 @@ The application will be available at `http://localhost:3000`.
 
 ## Deployment
 
-The application is deployed on Vercel. [live]()
+The application is deployed on Vercel. [live](https://roc8-moonshot-henna.vercel.app)
 
 ## Contact
 

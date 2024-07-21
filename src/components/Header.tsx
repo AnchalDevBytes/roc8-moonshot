@@ -21,7 +21,7 @@ const Header = () => {
         <div className="flex list-none items-center justify-end gap-5 text-xs relative">
           <li>Help</li>
           <li>Order & Return</li>
-          <li className="hover:text-green-600 text-green-700 hover:scale-[1.3] hover:font-bold transition-all cursor-pointer active:scale-[1]" onClick={handleLogoutVisibility}>Hi! {fullname}</li>
+          <li className="hover:text-gray-600 hover:font-bold transition-all cursor-pointer active:scale-[1]" onClick={handleLogoutVisibility}>Hi! {fullname}</li>
           <LogoutButton isVisible={isLogoutVisible} visibleHandler={handleLogoutVisibility}/>
         </div>
         <div className="flex items-center justify-between py-1">

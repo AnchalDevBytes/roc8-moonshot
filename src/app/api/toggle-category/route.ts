@@ -32,9 +32,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(userCategory, { status: 200 });
   } catch (error) {
     if (error instanceof Error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ error: error.message });
     } else {
-        return NextResponse.json({ error: "Unknown error while updating category" }, { status: 500 });
+        return NextResponse.json({ error: "Unknown error while updating category" });
     }
   }
 }

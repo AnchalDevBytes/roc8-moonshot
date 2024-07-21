@@ -42,23 +42,18 @@ export async function POST(req: NextRequest) {
     const user : User | null = await db.user.findUnique({
       where: { email },
     });
-
-    console.log(user);
     
-
     if (!user) {
       return NextResponse.json(
-        { success: false, message: "User does not exist" },
-        { status: 404 },
+        { success: false, message: "User does not exist" }
       );
     }
 
     const isPasswordCorrect : boolean = await bcrypt.compare(password, user.password);
 
     if (!isPasswordCorrect) {
-      NextResponse.json(
-        { success: false, message: "Invalid Password" },
-        { status: 401 },
+      return NextResponse.json(
+        { success: false, message: "Invalid Password" }
       );
     }
 
@@ -85,7 +80,7 @@ export async function POST(req: NextRequest) {
       secure: true,
     };
 
-    const respose = NextResponse.json(
+    const response = NextResponse.json(
       {
         success: true,
         message: "user logged in successfully",
@@ -95,20 +90,18 @@ export async function POST(req: NextRequest) {
         status: 200,
       },
     );
-    respose.cookies.set("accessToken", accessToken, options);
-    respose.cookies.set("refreshToken", refreshToken, options);
-    return respose;
+    response.cookies.set("accessToken", accessToken, options);
+    response.cookies.set("refreshToken", refreshToken, options);
+    return response;
   } catch (error: unknown) {
     if (isError(error)) {
       
       return NextResponse.json(
-        { success: false, message: error.message },
-        { status: 500 },
+        { success: false, message: error.message }
       );
     } else {
       return NextResponse.json(
-        { success: false, message: "An unknown error occurred" },
-        { status: 500 },
+        { success: false, message: "An unknown error occurred" }
       );
     }
   }

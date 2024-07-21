@@ -52,7 +52,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<ApiResponse>>
       return NextResponse.json({
         success: false,
         message: "No categories available!"
-      }, { status: 400 });
+      });
     }
 
     const checkedCategoryIds = user ? user.checkedCategories.map(uc => uc.categoryId) : [];
